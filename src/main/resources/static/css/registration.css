@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1500px;
+  padding: 1rem;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20rem;
+}
+
+.sign-in-anchor {
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.sign-in-anchor:hover {
+  border-bottom: solid 2px #333333;
+}
+
+.get-started-anchor {
+  font-size: 1.6rem;
+  background-color: cadetblue;
+  padding: 1.8rem 2.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  margin-left: 1.5rem;
+}
+.get-started-anchor:hover {
+  background-color: rgb(110, 175, 170);
+  transition: all 0.3s;
+}
+
+.logo {
+  font-size: 5rem;
+  font-weight: 600;
+  display: block;
+  background-color: cadetblue;
+  padding: 2rem 3rem;
+  color: gold;
+  border-radius: 100%;
+}
+
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-paragraph h1 {
+  font-size: 5rem;
+  font-family: "Trocchi", serif;
+}
+section ul {
+  list-style: none;
+}
+section li {
+  font-size: 2.8rem;
+  margin-top: 1rem;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+section span {
+  color: cadetblue;
+}
+.content {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  margin-top: 1rem;
+}
+.yoyo-list {
+  padding-left: 1rem;
+  width: 100%;
+}
+.registration-row {
+  margin-top: 2.5rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+.form-input-email input {
+  margin-bottom: 2.5rem;
+  width: 100%;
+  border-radius: 6px;
+  height: 6rem;
+  padding-left: 2.5rem;
+  border: 1px solid lightgray;
+  outline: none;
+}
+.form-input-email input:focus {
+  border: 2px solid cadetblue;
+}
+.sing-up-button {
+  font-size: 1.6rem;
+  padding: 1.8rem 2.4rem;
+  min-width: 175px;
+  border-radius: 6px;
+  background-color: cadetblue;
+  color: black;
+  font-weight: 600;
+  border: none;
+}
+.sing-up-button:hover {
+  background-color: rgb(110, 175, 170);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.error-alert{
+  color: #b23655;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}

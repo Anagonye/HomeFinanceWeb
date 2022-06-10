@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+html {
+    font-size: 62.5%;
+}
+body{
+    background-color: cadetblue;
+}
+.container{
+    background-color: #ffffff;
+    margin: 10rem auto;
+    border-radius: 10px;
+    max-width: 100rem;
+    padding: 7rem;
+
+
+}
+.error-message{
+    font-size: 4rem;
+    color: #b23655;
+    text-align: center;
+    margin-bottom: 4rem;
+
+}

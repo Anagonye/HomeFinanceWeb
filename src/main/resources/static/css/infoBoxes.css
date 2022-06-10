@@ -1,0 +1,39 @@
+.info-boxes {
+    background-color: #f9f8fb;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info-box {
+    background-color: #fff;
+    margin-top: 10rem;
+    border-radius: 0.5rem;
+    width: 70%;
+}
+.info-box-header {
+    font-size: 3rem;
+    text-align: center;
+    border-bottom: #d1d1d6 1px solid;
+    padding: 1rem;
+    font-weight: 600;
+}
+.info-box-content {
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+}
+
+
+.info-box-by-value {
+    margin-bottom: 2rem;
+}
+.info-box-top-by-text {
+    font-size: 2rem;
+}
+.font-plus{
+    font-size: 3.5rem;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Roboto:ital,wght@0,400;1,100&family=Trocchi&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form-box">
+
+            <form action="/login" method="post">
+                <p class="login-form-title">Login</p>
+                <div class="login-form-elements">
+                    <div class="login-form-input-box">
+                        <input type="text" name="username" class="login-form-input login-form-email" placeholder="Email">
+                    </div>
+                    <div th:if="${param.error}"  th:text="${session[SPRING_SECURITY_LAST_EXCEPTION]}" class="alert error-alert">
+
+                    </div>
+                    <div th:if="${param.logout}" class="alert">
+                        Logout successful.
+                    </div>
+                    <div th:if="${param.confirmationSuccessful}" class="alert">
+                        Confirmation successful. Sign in.
+                    </div>
+                    <div th:if="${param.confirmationError}" class="alert">
+                        Confirmation error. User not found.
+                    </div>
+                    <div class="login-form-input-box">
+                        <input type="password" name="password" class="login-form-input login-form-email" placeholder="Password">
+                    </div>
+                    <div class="submit-btn-box">
+                        <button class="submit-btn" type="submit">Sign in</button>
+                    </div>
+                    <div class="registration">
+                        <p>Don't have account? <a href="/registration" class="sign-up-anchor">Sign up</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

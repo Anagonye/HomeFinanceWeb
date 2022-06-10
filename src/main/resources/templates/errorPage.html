@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FinWeb | Something goes wrong.</title>
+    <link rel="stylesheet" href="/css/errorStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Roboto:ital,wght@0,400;1,100&family=Trocchi&display=swap"
+            rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="error-message" >Something goes wrong!</div>
+        <div class="error-message" th:text="${errorMsg}"></div>
+    </div>
+
+</body>
+</html>

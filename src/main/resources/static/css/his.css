@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+
+
+
+.section {
+  display: grid;
+  grid-template-columns: 20fr 80fr;
+  height: 100vh;
+  position: relative;
+}
+
+
+.content {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+}
+
+
+
+.history-nav{
+
+  border-bottom: #d1d1d6 1px solid;
+  display: flex;
+  justify-content: center;
+  padding:1rem;
+}
+
+.history-nav-filters{
+  width: 25%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+}
+.history-nav-filters-button{
+  display: flex;
+  align-items: center;
+
+
+}
+.history-nav-month{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.history-nav-filters-menu{
+  position: absolute;
+  background-color: white;
+  top: 2.5rem;
+  left: 0;
+  z-index: 100;
+  border: #d1d1d6 1px solid ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+.history-nav-filters-menu-category{
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.history-nav-filters-menu-form{
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.history-nav-filters-menu-submit-box{
+  text-align: center;
+}
+
+.history-nav-switch{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+}
+.history-nav-switch-btn{
+  display: flex;
+  align-items: center;
+  color: #b23655;
+  font-size: 1.5rem;
+
+}
+.history-nav-switch-menu{
+  position: absolute;
+  color: white;
+  background-color: cadetblue;
+  top: 2.5rem;
+  width: 8rem;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.history-anchor{
+  text-decoration: none;
+  color: #000000;
+}

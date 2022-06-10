@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>HomeFinance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Roboto:ital,wght@0,400;1,100&family=Trocchi&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/registration.css" />
+    <link rel="stylesheet" href="queries.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav-bar">
+        <div class="nav-bar-logo">
+          <p class="logo">$</p>
+        </div>
+        <div class="nav-bar-links">
+          <a class="sign-in-anchor" href="/login">Sign In</a>
+
+        </div>
+      </div>
+      <section>
+        <div class="header-paragraph">
+          <h1>Sign up now to track your money.</h1>
+        </div>
+        <div class="content">
+          <div class="yoyo-list">
+            <ul>
+              <li><span>✔</span> Start having full control of your money.</li>
+              <li><span>✔</span> Full financial statement on request.</li>
+              <li><span>✔</span> Saving has never been so easy.</li>
+              <li>
+                <span>✔</span> Compare your current expenses to those of the
+                past.
+              </li>
+              <li><span>✔</span> Find out what your personal inflation is.</li>
+            </ul>
+          </div>
+          <div class="registration-row">
+
+            <form action="/registration" method="post" th:object="${request}">
+              <div class="form-input-email">
+                <p th:if="${#fields.hasErrors('firstName')}" class="error-alert"> Name cannot be empty.</p>
+                <input type="text" name="" placeholder="First name" th:field="${request.firstName}"/>
+              </div>
+              <div class="form-input-email">
+                <p th:if="${#fields.hasErrors('email')}" class="error-alert"> Email cannot be empty.</p>
+                <p th:if="${emailNotValid}" class="error-alert"> Email not valid.</p>
+                <p th:if="${emailAlreadyTaken}" class="error-alert"> Email already taken.</p>
+                <input type="text" placeholder="Email" th:field="${request.email}" />
+              </div>
+              <div class="form-input-email">
+                <p th:if="${#fields.hasErrors('password')}" class="error-alert"> Password cannot be empty.</p>
+                <input type="password" placeholder="Password" th:field="${request.password}" />
+              </div>
+
+              <div class="form-button">
+                <button class="sing-up-button" type="submit">Sign up</button>
+                <div class="alert" th:if="${param.successful}">Registration successful. Sign in.</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

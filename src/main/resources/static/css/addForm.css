@@ -1,0 +1,254 @@
+.add-form-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43rem;
+    height: 70rem;
+    background-color: white;
+    z-index: 200;
+    border-radius: 1rem;
+}
+.make-darker {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 50%;
+    z-index: 100;
+}
+.hidden {
+    display: none;
+}
+
+.add-form-top-bar {
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    padding-top: 1.5rem;
+    margin: 0 1rem;
+}
+.add-form-menu {
+    text-align: center;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.add-form-exit-btn {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 100%;
+    margin-left: 0.5rem;
+    font-size: 3rem;
+}
+.add-form-exit-btn:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.add-form-menu:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.add-form-value {
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.add-form-value-input {
+    all: unset;
+    padding: 2rem;
+    font-size: 3rem;
+    width: 100%;
+    font-weight: 800;
+}
+.add-form-value-input::placeholder {
+    color: #aaa;
+}
+.add-form-value-icon {
+    font-size: 4rem;
+    padding: 1.5rem;
+    color: #aaa;
+}
+
+.add-form-name {
+    background-color: #eee;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+}
+.add-form-name-input {
+    all: unset;
+    padding: 2rem;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 800;
+    width: 100%;
+}
+.add-form-name-input::placeholder {
+    color: #aaa;
+}
+.add-form-name-icon {
+    font-size: 5rem;
+    padding: 1.5rem;
+    color: #aaa;
+}
+
+.add-form-category {
+    background-color: #eee;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+}
+.add-form-category-input {
+    all: unset;
+    padding: 2rem;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 800;
+    width: 100%;
+}
+.add-form-category-input::placeholder {
+    color: #aaa;
+}
+.add-form-category-icon {
+    font-size: 5rem;
+    padding: 1.5rem;
+    color: #aaa;
+}
+
+.add-form-date {
+    background-color: #eee;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+}
+.add-form-date-input {
+    all: unset;
+    padding: 2rem;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 800;
+    width: 100%;
+}
+.add-form-date-input::placeholder {
+    color: #aaa;
+}
+.add-form-date-icon {
+    font-size: 5rem;
+    padding: 1.5rem;
+    color: #aaa;
+}
+.add-form-btn-box {
+    text-align: center;
+}
+.add-form-btn-save {
+    font-size: 2rem;
+    padding: 2rem 8rem;
+    border: none;
+    border-radius: 10rem;
+    margin-top: 2rem;
+    color: #aaa;
+    font-weight: 800;
+    pointer-events: none;
+}
+.expense-ready-to-save {
+    color: #fff;
+    cursor: pointer;
+    pointer-events: auto;
+    background-color: #b23655;
+    box-shadow: 1px 2px 6px rgb(188, 64, 95);
+}
+.profit-ready-to-save{
+    color: #fff;
+    cursor: pointer;
+    pointer-events: auto;
+    background-color: #5f9ea0;
+    box-shadow: 1px 2px 6px rgb(85, 148, 150);
+}
+.add-profit-form-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43rem;
+    height: 70rem;
+    background-color: white;
+    z-index: 200;
+    border-radius: 1rem;
+}
+.add-form-select-menu{
+    position: absolute;
+    top: 6rem;
+    right: auto;
+    background-color: cadetblue;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width:35.5rem;
+    z-index: 200;
+    cursor: pointer;
+
+}
+
+.add-profit-form-menu{
+    text-align: center;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.add-profit-form-menu:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+
+.add-form-select-menu-expense{
+    position: absolute;
+    top: 6rem;
+    right: auto;
+    background-color: rgb(168, 44, 75);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    width:35.5rem;
+    z-index: 200;
+    cursor: pointer;
+
+}
+
+.duplicate-form-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43rem;
+    height: 70rem;
+    background-color: white;
+    z-index: 200;
+    border-radius: 1rem;
+}
+
+.edit-form-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43rem;
+    height: 70rem;
+    background-color: white;
+    z-index: 200;
+    border-radius: 1rem;
+}

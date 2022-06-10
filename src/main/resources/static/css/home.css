@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+
+
+.section {
+  display: grid;
+  grid-template-columns: 20fr 80fr;
+  height: 100vh;
+  position: relative;
+}
+
+.content {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+}
+
+

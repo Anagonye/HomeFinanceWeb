@@ -1,0 +1,60 @@
+.latest-table-container {
+    border-right: #d1d1d6 1px solid;
+}
+
+.latest-header {
+    border-bottom: #d1d1d6 1px solid;
+    text-align: center;
+    font-size: 5rem;
+    padding: 2rem;
+}
+
+.latest-table-rows ul {
+    list-style: none;
+    display: flex;
+    border-bottom: #d1d1d6 1px solid;
+    padding: 0.5rem;
+    font-size: 2.5rem;
+}
+.latest-name-col {
+    text-align: left;
+}
+.latest-category-col {
+    text-align: left;
+}
+
+.latest-date-col {
+    text-align: center;
+}
+
+.latest-table-date {
+    text-align: center;
+    font-size: 2.3rem;
+    padding: 1rem;
+}
+.latest-table-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.latest-table-content:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+.latest-table-content-name {
+    font-size: 3rem;
+    font-weight: 600;
+}
+.latest-table-content-category {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+}
+.latest-table-content-value {
+    padding-right: 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.latest-table-content-box {
+    padding-left: 2rem;
+}
+

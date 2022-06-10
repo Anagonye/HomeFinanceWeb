@@ -1,0 +1,19 @@
+.add-button-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.add-button {
+    background-color: #b23655;
+    border-radius: 100%;
+    box-shadow: 1px 2px 6px rgb(188, 64, 95);
+}
+
+.add-button-icon {
+    font-size: 10rem;
+    color: #fff;
+}
+.add-button:hover {
+    background-color: rgb(168, 44, 75);
+    cursor: pointer;
+}

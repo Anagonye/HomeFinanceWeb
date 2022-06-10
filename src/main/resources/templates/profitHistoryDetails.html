@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeFinance</title>
+
+    <link rel="stylesheet" href="/css/his.css" />
+    <link rel="stylesheet" href="/css/navigation.css" />
+    <link rel="stylesheet" href="/css/infoBoxes.css" />
+    <link rel="stylesheet" href="/css/addForm.css" />
+    <link rel="stylesheet" href="/css/recent.css" />
+    <link rel="stylesheet" href="/css/detailsSection.css" />
+    <link rel="stylesheet" href="/css/historyProfits.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Roboto:ital,wght@0,400;1,100&family=Trocchi&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="make-darker hidden"></div>
+    <div class="container">
+      <div class="section">
+        <div class="add-form-box hidden">
+          <div class="add-form-top-bar">
+            <div class="add-form-menu">
+              <div>Add expense</div>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+            <div class="add-form-exit-btn">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="add-form-select-menu hidden">
+              <div class="add-form-select-profit">Add profit</div>
+            </div>
+          </div>
+          <div class="add-form-content">
+            <form action="/save/expense" method="post" class="add-form" th:object="${newExpense}">
+              <div class="add-form-main">
+                <div class="add-form-value">
+                  <ion-icon
+                          class="add-form-value-icon"
+                          name="cash-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-value-input"
+                          type="number"
+                          placeholder="0.00"
+                          autocomplete="off"
+                          step="0.01"
+                          min="0.01"
+                          th:field="${newExpense.value}"
+                  />
+                </div>
+                <div class="add-form-name">
+                  <ion-icon
+                          class="add-form-name-icon"
+                          name="attach-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-name-input"
+                          type="text"
+                          placeholder="Name"
+                          autocomplete="off"
+                          th:field="${newExpense.name}"
+
+                  />
+                </div>
+                <div class="add-form-category">
+                  <ion-icon
+                          class="add-form-category-icon"
+                          name="cube-outline"
+                  ></ion-icon>
+                  <select
+                          class="add-form-category-input"
+                          th:field="${newExpense.expenseCategory}"
+                  />
+                  <option th:each="category: ${categoriesListExpense}" th:value="${category}" th:text="${category}" ></option>
+                  </select>
+                </div>
+                <div class="add-form-date">
+                  <ion-icon
+                          class="add-form-date-icon"
+                          name="calendar-number-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-date-input"
+                          type="date"
+                          placeholder="24/03/2022"
+                          th:field="${newExpense.localDate}"
+                  />
+                </div>
+                <div class="add-form-btn-box">
+                  <button class="add-form-btn-save">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="add-form-show-more"></div>
+
+        </div>
+        <div class="add-profit-form-box hidden">
+          <div class="add-form-top-bar">
+            <div class="add-profit-form-menu">
+              <div>Add profit</div>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+            <div class="add-form-exit-btn">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="add-form-select-menu-expense hidden">
+              <div class="add-form-select-profit">Add expense</div>
+            </div>
+          </div>
+          <div class="add-form-content profit">
+            <form action="/profits/save" method="post" class="add-form" th:object="${newProfit}">
+              <div class="add-form-main">
+                <div class="add-form-value">
+                  <ion-icon
+                          class="add-form-value-icon"
+                          name="cash-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-value-input profit-input-value"
+                          type="number"
+                          placeholder="0.00"
+                          autocomplete="off"
+                          step="0.01"
+                          min="0.01"
+                          th:field="${newProfit.value}"
+                  />
+                </div>
+                <div class="add-form-name">
+                  <ion-icon
+                          class="add-form-name-icon"
+                          name="attach-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-name-input profit-input-name"
+                          type="text"
+                          placeholder="Name"
+                          autocomplete="off"
+                          list="names-list-profits"
+                          th:field="${newProfit.name}"
+                  />
+                  <datalist id="names-list-profits">
+                    <option th:each="name: ${namesListProfit}" th:text="${name}"></option>
+                  </datalist>
+                </div>
+                <div class="add-form-category">
+                  <ion-icon
+                          class="add-form-category-icon"
+                          name="cube-outline"
+                  ></ion-icon>
+                  <select
+                          class="add-form-category-input"
+                          th:field="${newProfit.profitCategory}"
+                  />
+                  <option th:each="category: ${categoriesListProfit}" th:value="${category}" th:text="${category}" ></option>
+                  </select>
+                </div>
+                <div class="add-form-date">
+                  <ion-icon
+                          class="add-form-date-icon"
+                          name="calendar-number-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-date-input profit-input-date"
+                          type="date"
+                          placeholder="24/03/2022"
+                          th:field="${newProfit.localDate}"
+                  />
+                </div>
+                <div class="add-form-btn-box">
+                  <button class="add-form-btn-save profit-btn-save">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="add-form-show-more"></div>
+        </div>
+        <div class="duplicate-form-box hidden">
+          <div class="add-form-top-bar">
+            <div class="add-form-menu">
+              <div>Duplicate</div>
+            </div>
+            <div class="add-form-exit-btn">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="add-form-select-menu hidden">
+              <div class="add-form-select-profit">Add profit</div>
+            </div>
+          </div>
+          <div class="add-form-content">
+            <form action="/profits/save" method="post" class="add-form" th:object="${newProfit}">
+              <div class="add-form-main">
+                <div class="add-form-value">
+                  <ion-icon
+                          class="add-form-value-icon"
+                          name="cash-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-value-input duplicate-input-value"
+                          type="number"
+                          placeholder="0.00"
+                          autocomplete="off"
+                          step="0.01"
+                          min="0.01"
+                          th:field="${detailedProfit.value}"
+                  />
+
+                </div>
+                <div class="add-form-name">
+                  <ion-icon
+                          class="add-form-name-icon"
+                          name="attach-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-name-input duplicate-input-name"
+                          type="text"
+                          placeholder="Name"
+                          autocomplete="off"
+                          list="names-list2"
+                          th:field="${detailedProfit.name}"
+
+                  />
+                  <datalist id="names-list2"2>
+                    <option th:each="name: ${namesListProfit}" th:text="${name}"></option>
+                  </datalist>
+                </div>
+                <div class="add-form-category">
+                  <ion-icon
+                          class="add-form-category-icon"
+                          name="cube-outline"
+                  ></ion-icon>
+                  <select
+                          class="add-form-category-input duplicate-input-category"
+                          th:field="${detailedProfit.profitCategory}"
+                  />
+                  <option th:each="category: ${categoriesListProfit}" th:value="${category}" th:text="${category}" ></option>
+                  </select>
+                  <datalist id="categories-list2">
+                    <option th:each="category: ${categoriesListProfit}" th:text="${category.name()}"></option>
+                  </datalist>
+                </div>
+                <div class="add-form-date">
+                  <ion-icon
+                          class="add-form-date-icon"
+                          name="calendar-number-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-date-input duplicate-input-date"
+                          type="date"
+                          placeholder="24/03/2022"
+                          th:field="${detailedProfit.localDate}"
+                  />
+                </div>
+                <div class="add-form-btn-box">
+                  <button class="add-form-btn-save duplicate-btn-save">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="add-form-show-more"></div>
+        </div>
+
+        <div class="edit-form-box hidden">
+          <div class="add-form-top-bar">
+            <div class="add-form-menu">
+              <div>Edit</div>
+            </div>
+            <div class="add-form-exit-btn">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="add-form-select-menu hidden">
+              <div class="add-form-select-profit">Add profit</div>
+            </div>
+          </div>
+          <div class="add-form-content">
+            <form th:action="@{'/profit/update/' + ${detailedProfit.id}}" method="post" class="add-form" th:object="${detailedProfit}">
+              <div class="add-form-main">
+                <div class="add-form-value">
+                  <ion-icon
+                          class="add-form-value-icon"
+                          name="cash-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-value-input edit-input-value"
+                          type="number"
+                          placeholder="0.00"
+                          autocomplete="off"
+                          step="0.01"
+                          min="0.01"
+                          th:field="${detailedProfit.value}"
+                  />
+
+                </div>
+                <div class="add-form-name">
+                  <ion-icon
+                          class="add-form-name-icon"
+                          name="attach-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-name-input edit-input-name"
+                          type="text"
+                          placeholder="Name"
+                          autocomplete="off"
+                          list="names-list3"
+                          th:field="${detailedProfit.name}"
+
+                  />
+                  <datalist id="names-list3"2>
+                    <option th:each="name: ${namesListProfit}" th:text="${name}"></option>
+                  </datalist>
+                </div>
+                <div class="add-form-category">
+                  <ion-icon
+                          class="add-form-category-icon"
+                          name="cube-outline"
+                  ></ion-icon>
+                  <select
+                          class="add-form-category-input edit-input-category"
+                          th:field="${detailedProfit.profitCategory}"
+                  />
+                  <option th:each="category: ${categoriesListProfit}" th:value="${category}" th:text="${category}" ></option>
+                  </select>
+                </div>
+                <div class="add-form-date">
+                  <ion-icon
+                          class="add-form-date-icon"
+                          name="calendar-number-outline"
+                  ></ion-icon>
+                  <input
+                          class="add-form-date-input edit-input-date"
+                          type="date"
+                          placeholder="24/03/2022"
+                          th:field="${detailedProfit.localDate}"
+                  />
+                </div>
+                <div class="add-form-btn-box">
+                  <button class="add-form-btn-save edit-btn-save">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="add-form-show-more"></div>
+        </div>
+        <div class="navigation">
+          <div class="nav-info-email">
+            <span class="info-title">My Finances</span>
+            <span class="info-email" th:text="${username}"></span>
+          </div>
+          <div class="nav-main">
+            <ul class="nav-list">
+              <li class="nav-list-li">
+                <a class="navlink" href="/expenses"
+                  ><ion-icon
+                    class="navlink-icon"
+                    name="remove-outline"
+                  ></ion-icon>
+                  <div class="navlink-content">
+                    <span>Expenses</span>
+                    <span class="navlink-value" th:text="${'$'+sumOfExpensesCurrentMonth}">$21.45</span>
+                  </div></a
+                >
+              </li>
+              <li class="nav-list-li">
+                <a class="navlink" href="/profits"
+                  ><ion-icon class="navlink-icon" name="add-outline"></ion-icon>
+                  <div class="navlink-content">
+                    <span>Incomes</span>
+                    <span class="navlink-value" th:text="${'$' + sumOfProfitsCurrentMonth}">$120.05</span>
+                  </div></a
+                >
+              </li>
+              <li class="nav-list-li">
+                <a class="navlink" href="/financialStatement"
+                  ><ion-icon
+                    class="navlink-icon"
+                    name="reader-outline"
+                  ></ion-icon
+                  >Financial Statement</a
+                >
+              </li>
+              <li class="nav-list-li add-new-btn">
+                <a class="navlink"
+                  ><ion-icon
+                    class="navlink-icon"
+                    name="add-circle-outline"
+                  ></ion-icon
+                  >Add new</a
+                >
+              </li>
+              <li class="nav-list-li">
+                <a class="navlink" th:href="@{'/profits/history/' + ${yearUrl} + '/'+${monthUrl}}"
+                  ><ion-icon
+                    class="navlink-icon"
+                    name="time-outline"
+                  ></ion-icon>
+                  History</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="nav-logout">
+            <ul class="nav-list">
+              <li class="nav-list-li">
+                <a class="navlink" href="/logout"
+                ><ion-icon
+                        class="navlink-icon"
+                        name="power-outline"
+                ></ion-icon>
+                  Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+          <div class="latest-table-container">
+            <div class="latest-header">History</div>
+            <div class="history-nav">
+              <div class="history-nav-filters"><div class="history-nav-filters-button">Filters <ion-icon  name="caret-down-outline"></ion-icon></div>
+
+                <div class="history-nav-filters-menu hidden">
+                  <form class="history-nav-filters-menu-form" th:action="@{'/profits/history/' + ${yearUrl} +'/'+ ${monthUrl} + '/profit/' + ${id}}" th:object="${criteriaProfit}">
+                    <div class="history-nav-filters-menu-category">Category</div>
+                    <select th:field="${criteriaProfit.profitCategory}">
+                      <option value="">All</option>
+                      <option th:each="category : ${categoriesListProfit}" th:value="${category}" th:text="${category}"></option>
+                    </select>
+                    <div class="history-nav-filters-menu-submit-box">
+                      <button class="history-nav-filters-menu-submit">Save</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
+              <div class="history-nav-month">
+                <a th:if="${monthUrl > 1 }" th:href="@{'/profits/history/' + ${yearUrl} + '/' + ${monthUrl - 1} +'/'+'profit/'+${id} + ${query}}"><div><ion-icon name="chevron-back-outline"></ion-icon></div></a>
+                <a th:if="${monthUrl == 1 }" th:href="@{'/profits/history/' + ${yearUrl - 1} + '/' + ${12} +'/'+'profit/'+${id} + ${query}}"><div><ion-icon name="chevron-back-outline"></ion-icon></div></a>
+                <div th:text="${date.getMonth().name() +' '+date.getYear()}">MARCH 2020</div>
+                <a th:if="${monthUrl < 12 }" th:href="@{'/profits/history/' + ${yearUrl} + '/' + ${monthUrl + 1} +'/'+'profit/'+${id} + ${query}}"><div><ion-icon name="chevron-forward-outline"></ion-icon></div></a>
+                <a th:if="${monthUrl == 12 }" th:href="@{'/profits/history/' + ${yearUrl +1} + '/' + ${1} +'/'+'profit/'+${id} + ${query}}"><div><ion-icon name="chevron-forward-outline"></ion-icon></div></a>
+              </div>
+              <div class="history-nav-switch">
+                <div class="history-nav-switch-btn">Incomes <ion-icon  name="caret-down-outline"></ion-icon></div>
+                <div class="history-nav-switch-menu hidden">Expenses</div>
+              </div>
+            </div>
+            <div class="latest-table">
+            <div class="latest-table-rows" th:each="profit, iteration: ${profits}">
+              <div class="latest-table-date"  th:if="${iteration.first }"
+                   th:text="${profits.get(iteration.index).savedAt.toLocalDate()}"></div>
+              <div class="latest-table-date"  th:if="${!iteration.first && !profits.get(iteration.index).savedAt.toLocalDate().equals(profits.get(iteration.index - 1).savedAt.toLocalDate()) }"
+                   th:text="${profits.get(iteration.index).savedAt.toLocalDate()}"></div>
+
+              <a class="history-anchor" th:href="@{'/profits/history/'+ ${yearUrl} +'/'+ ${monthUrl} + '/profit/' + ${profit.id}}"> <div class="latest-table-content" >
+                <div class="latest-table-content-box">
+                  <span class="latest-table-content-category" th:text="${profit.profitCategory.name().toLowerCase()}" >food</span>
+                </div>
+                <div class="latest-table-content-value" th:text="${'$'+profit.value}">$5.24</div>
+              </div></a>
+            </div>
+            </div>
+            <div class="latest-table-white-space"></div>
+          </div>
+          <div class="info-boxes">
+            <div class="expense-detail-box">
+              <div class="expense-detail-header">Profit details</div>
+              <div class="expense-details">
+                <div class="expense-detail-value" th:text="${'$'+detailedProfit.value}">$5.24</div>
+                <div class="expense-detail-date" th:text="${detailedProfit.savedAt.toLocalDate()}">Sun 20 March</div>
+                <div class="expense-detail-name" th:text="${detailedProfit.name}">Tomato</div>
+                <div class="expense-detail-category" th:text="${detailedProfit.profitCategory}">food</div>
+              </div>
+              <div class="expense-detail-infos" th:object="${profitDetails}">
+                <div class="expense-detail-compare">
+                  <p>Number of:</p>
+                  <p th:text="${profitDetails.getQuantity()}">.</p>
+                </div>
+                <div class="expense-detail-compare">
+                  <p>Participation in the category:</p>
+                  <p th:text="${profitDetails.getParticipationInCategory() +'%'}">23%</p>
+                </div>
+                <div class="expense-detail-compare">
+                  <p>Total this month:</p>
+                  <p th:text="${'$'+profitDetails.getTotalValueCurrentMonth()}">$124.55</p>
+                </div>
+                <div class="expense-detail-compare">
+                  <p>Total this year:</p>
+                  <p th:text="${'$'+profitDetails.getTotalValueCurrentYear()}" >$356</p>
+                </div>
+                <div class="expense-detail-compare">
+                  <p>Price of latest such expense:</p>
+                  <p><span th:text="${'$'+profitDetails.getPriceOfLatestSuchProfit()}"></span><span th:text="${' ('+profitDetails.getPercentageDifferenceToLatest()+'%)'}"></span></p>
+                </div>
+                <div class="expense-detail-compare">
+                  <p>Average price:</p>
+                  <p><span th:text="${'$'+profitDetails.getAverageValue()}"></span><span th:text="${' ('+profitDetails.getPercentageDifferenceToAverage()+'%)'}"></span></p>
+                </div>
+              </div>
+              <div class="expense-detail-options">
+                <div class="expense-detail-buttons-stack">
+                  <button class="expense-detail-option-button duplicate">
+                    DUPLICATE
+                  </button>
+                  <button class="expense-detail-option-button edit-btn">EDIT</button>
+                  <button class="expense-detail-option-button">DELETE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script  type="text/javascript" th:src="@{/js/script.js}"></script>
+    <script  type="text/javascript" th:src="@{/js/filters.js}"></script>
+    <script  type="text/javascript" th:src="@{/js/switchHistoryProfits.js}"></script>
+    <script  type="text/javascript" th:src="@{/js/addNewButtonProfit.js}"></script>
+    <script type="text/javascript" th:src="@{/js/duplicateButton.js}"></script>
+    <script type="text/javascript" th:src="@{/js/duplicateForm.js}"></script>
+    <script type="text/javascript" th:src="@{/js/editButton.js}"></script>
+    <script type="text/javascript" th:src="@{/js/editForm.js}"></script>
+    <script  type="text/javascript" th:src="@{/js/profitReadyChecker.js}"></script>
+  </body>
+</html>
